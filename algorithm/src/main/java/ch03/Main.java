@@ -2,12 +2,14 @@ package ch03;
 
 import base.List;
 import ch03.single.SingleLinkedList;
+import ch03.single.SingleLinkedList2;
 import utils.Asserts;
 
 public class Main {
     public static void main(String[] args) {
 
-        testList(new SingleLinkedList<>());
+//        testList(new SingleLinkedList<>());
+        testList(new SingleLinkedList2<>());
     }
 
 

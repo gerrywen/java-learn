@@ -1,4 +1,4 @@
-package ch02;
+package base;
 
 public abstract class AbstractList<E> implements List<E> {
 

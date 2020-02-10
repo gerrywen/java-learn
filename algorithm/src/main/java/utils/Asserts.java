@@ -1,4 +1,4 @@
-package ch02;
+package utils;
 
 public class Asserts {
     public static void test(boolean value) {

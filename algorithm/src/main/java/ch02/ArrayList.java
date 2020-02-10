@@ -1,7 +1,6 @@
 package ch02;
 
-import java.util.Arrays;
-import java.util.Objects;
+import base.AbstractList;
 
 @SuppressWarnings("unchecked")
 public class ArrayList<E> extends AbstractList<E> {

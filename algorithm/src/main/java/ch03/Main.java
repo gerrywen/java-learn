@@ -1,6 +1,9 @@
 package ch03;
 
 import base.List;
+import ch03.circle.CircleLinkedList;
+import ch03.circle.CircleLinkedList2;
+import ch03.circle.SingleCircleLinkedList;
 import ch03.single.SingleLinkedList;
 import ch03.single.SingleLinkedList2;
 import utils.Asserts;
@@ -10,12 +13,30 @@ public class Main {
 
 //        testList(new SingleLinkedList<>());
 //        testList(new SingleLinkedList2<>());
-        testList(new LinkedList<>());
-        new java.util.LinkedList<>();
-        new java.util.ArrayList<>();
+//        testList(new LinkedList<>());
+//        new java.util.LinkedList<>();
+//        new java.util.ArrayList<>();
+//        testList(new SingleCircleLinkedList<>());
+//        testList(new CircleLinkedList<>());
+//        testList(new CircleLinkedList2<>());
+//        josephus();
     }
 
+    static void josephus() {
+        CircleLinkedList2<Integer> list = new CircleLinkedList2<>();
+        for (int i = 1; i <= 8; i++) {
+            list.add(i);
+        }
 
+        // 指向头结点（指向1）
+        list.reset();
+
+        while (!list.isEmpty()) {
+            list.next();
+            list.next();
+            System.out.println(list.remove());
+        }
+    }
     /**
      * 链表测试
      * @param list

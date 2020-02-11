@@ -9,7 +9,10 @@ public class Main {
     public static void main(String[] args) {
 
 //        testList(new SingleLinkedList<>());
-        testList(new SingleLinkedList2<>());
+//        testList(new SingleLinkedList2<>());
+        testList(new LinkedList<>());
+        new java.util.LinkedList<>();
+        new java.util.ArrayList<>();
     }
 
 

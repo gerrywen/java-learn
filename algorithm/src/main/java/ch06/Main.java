@@ -2,6 +2,7 @@ package ch06;
 
 import base.printer.BinaryTreeInfo;
 import base.printer.BinaryTrees;
+import base.tree.BST;
 
 import java.util.Comparator;
 
@@ -37,7 +38,8 @@ public class Main {
 //        test4();
 //        test1();
 //        test3();
-        test7();
+//        test7();
+        test8();
     }
 
 
@@ -179,6 +181,25 @@ public class Main {
 
 //        bst.remove(7);
         bst.remove(2);
+
+        BinaryTrees.println(bst);
+    }
+
+    static void test8() {
+        Integer[] data = new Integer[] {
+                7, 4, 9, 2, 5, 8, 11, 3, 12, 1
+        };
+
+        BST<Integer> bst = new BST<>();
+        for (Integer datum : data) {
+            bst.add(datum);
+        }
+
+        BinaryTrees.println(bst);
+
+//        bst.remove(7);
+        bst.remove(2);
+        bst.remove(7);
 
         BinaryTrees.println(bst);
     }

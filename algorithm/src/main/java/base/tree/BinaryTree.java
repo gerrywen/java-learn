@@ -269,6 +269,16 @@ public class BinaryTree<E> implements BinaryTreeInfo {
         return node.parent;
     }
 
+    /**
+     * 创建node节点
+     * @param element
+     * @param parent
+     * @return
+     */
+    protected Node<E> createNode(E element, Node<E> parent) {
+        return new Node<>(element, parent);
+    }
+
 
     /**
      * 抽象类
@@ -297,10 +307,10 @@ public class BinaryTree<E> implements BinaryTreeInfo {
      * @param <E>
      */
     protected static class Node<E> {
-        E element;
-        Node<E> left;
-        Node<E> right;
-        Node<E> parent;
+        public E element;
+        public Node<E> left;
+        public Node<E> right;
+        public Node<E> parent;
 
         /**
          * 构造方法
@@ -331,6 +341,38 @@ public class BinaryTree<E> implements BinaryTreeInfo {
             return left != null && right != null;
         }
 
+        /**
+         * 左子节点
+         * @return
+         */
+        public boolean isLeftChild() {
+            return parent != null && this == parent.left;
+        }
+
+        /**
+         * 右子节点
+         * @return
+         */
+        public boolean isRightChild() {
+            return parent != null && this == parent.right;
+        }
+
+        /**
+         * 兄弟节点
+         * @return
+         */
+        public Node<E> sibling() {
+            if (isLeftChild()) {
+                return parent.right;
+            }
+
+            if (isRightChild()) {
+                return parent.left;
+            }
+
+            return null;
+        }
+
     }
 
 
@@ -351,12 +393,13 @@ public class BinaryTree<E> implements BinaryTreeInfo {
 
     @Override
     public Object string(Object node) {
-        Node<E> myNode = (Node<E>) node;
-        String parentString = "null";
-        if (myNode.parent != null) {
-            parentString = myNode.parent.element.toString();
-        }
-//        return myNode.element;
-        return myNode.element + "_p(" + parentString + ")";
+        return node;
+//        Node<E> myNode = (Node<E>) node;
+//        String parentString = "null";
+//        if (myNode.parent != null) {
+//            parentString = myNode.parent.element.toString();
+//        }
+////        return myNode.element;
+//        return myNode.element + "_p(" + parentString + ")";
     }
 }

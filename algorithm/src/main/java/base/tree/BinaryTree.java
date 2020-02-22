@@ -286,7 +286,7 @@ public class BinaryTree<E> implements BinaryTreeInfo {
      *
      * @param <E>
      */
-    static abstract class Visitor<E> {
+    public static abstract class Visitor<E> {
         /**
          * 是否停止
          */
@@ -295,7 +295,7 @@ public class BinaryTree<E> implements BinaryTreeInfo {
         /**
          * @return 如果返回true，就代表停止遍历
          */
-        abstract boolean visit(E element);
+        protected abstract boolean visit(E element);
     }
 
     /**
@@ -393,13 +393,13 @@ public class BinaryTree<E> implements BinaryTreeInfo {
 
     @Override
     public Object string(Object node) {
-        return node;
-//        Node<E> myNode = (Node<E>) node;
-//        String parentString = "null";
-//        if (myNode.parent != null) {
-//            parentString = myNode.parent.element.toString();
-//        }
-////        return myNode.element;
-//        return myNode.element + "_p(" + parentString + ")";
+//        return node;
+        Node<E> myNode = (Node<E>) node;
+        String parentString = "null";
+        if (myNode.parent != null) {
+            parentString = myNode.parent.element.toString();
+        }
+//        return myNode.element;
+        return myNode.element + "_p(" + parentString + ")";
     }
 }

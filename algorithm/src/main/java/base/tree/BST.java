@@ -30,6 +30,11 @@ public class BST<E> extends BinaryTree<E> {
      */
     public void add(E element) {
         elementNotNullCheck(element);
+
+        // 判断元素是否存在
+        boolean contains = contains(element);
+        if (contains) return;
+
         // 添加第一个节点
         if (root == null) {
             root = createNode(element, null);

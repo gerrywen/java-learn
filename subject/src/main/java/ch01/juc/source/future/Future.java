@@ -1,4 +1,4 @@
-package ch01.juc.source;
+package ch01.juc.source.future;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;

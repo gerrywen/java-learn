@@ -1,4 +1,4 @@
-package ch01.juc.source;
+package ch01.juc.source.future;
 
 /**
  * @author wenguoli

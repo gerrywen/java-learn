@@ -11,6 +11,10 @@ import java.nio.charset.StandardCharsets;
 /**
  * description:
  *
+ * https://blog.csdn.net/hellozpc/article/details/81436980
+ *
+ * https://www.rabbitmq.com/getstarted.html
+ *
  * @author wenguoli
  * @date 2020/2/28 17:50
  */

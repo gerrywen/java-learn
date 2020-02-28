@@ -5,6 +5,8 @@ import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.MessageProperties;
 
+import java.nio.charset.StandardCharsets;
+
 /**
  * description:
  *
@@ -32,7 +34,7 @@ public class Send {
             // 现在，我们需要将消息标记为persistent—通过将MessageProperties(它实现了BasicProperties)设置为PERSISTENT_TEXT_PLAIN值
             channel.basicPublish("", QUEUE_NAME,
                     MessageProperties.PERSISTENT_TEXT_PLAIN,
-                    message.getBytes("UTF-8"));
+                    message.getBytes(StandardCharsets.UTF_8));
             System.out.println(" [x] Sent '" + message + "'");
 
             Thread.sleep(i * 10);

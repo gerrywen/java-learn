@@ -14,6 +14,7 @@
         <module>algorithm</module>
         <module>jvm</module>
         <module>subject</module>
+        <module>spring-demo</module>
     </modules>
 
 

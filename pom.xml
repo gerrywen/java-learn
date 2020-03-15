@@ -16,6 +16,7 @@
         <module>subject</module>
         <module>spring-demo</module>
         <module>javaSE</module>
+        <module>dahua-design</module>
     </modules>
 
 

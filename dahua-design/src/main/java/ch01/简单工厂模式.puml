@@ -1,0 +1,37 @@
+@startuml
+
+abstract class Operation<<运算类>> {
+    - _numberA: double
+    - _numberB: double
+    + get_numberA() : double
+    + get_numberB() : double
+    + getResult() : double
+}
+
+class OperationAdd<<加法类>> {
+    + getResult(): double
+}
+
+class OperationSub<<减法类>> {
+    + getResult(): double
+}
+
+class OperationMul<<乘法类>> {
+    + getResult(): double
+}
+
+class OperationDiv<<除法类>> {
+    + getResult(): double
+}
+
+class OperationFactory<<简单工厂类>> {
+    + createOperation() : Operation
+}
+
+Operation <|--[#black] OperationAdd: 继承
+Operation <|--[#black] OperationSub: 继承
+Operation <|--[#black] OperationMul: 继承
+Operation <|--[#black] OperationDiv: 继承
+
+Operation <.. OperationFactory : 依赖
+@enduml

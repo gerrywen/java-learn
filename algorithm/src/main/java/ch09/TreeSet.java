@@ -1,7 +1,7 @@
 package ch09;
 
 import base.tree.BinaryTree;
-import ch08.RBTree;
+import ch01_01.RBTree;
 
 import java.util.Comparator;
 

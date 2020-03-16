@@ -1,0 +1,43 @@
+@startuml
+
+abstract class CashSuper<<现金收费抽象类>> {
+    + acceptCash(double money) : double
+}
+
+class CashNormal<<正常收取子类>> {
+    + acceptCash(double money) : double
+}
+
+class CashRebate<<打折收费子类>> {
+    - moneyRebate: double
+    + CashRebate(double moneyRebate)()
+    + acceptCash(double money) : double
+}
+
+class CashReturn<<返利收取子类>> {
+    - moneyCondition : double
+    - moneyReturn : double
+    + CashReturn(double moneyCondition, double moneyReturn)()
+    + acceptCash(double money) : double
+}
+
+CashSuper <|-- CashNormal
+CashSuper <|-- CashRebate
+CashSuper <|-- CashReturn
+
+class CashContextFactory<<策略模式现金上下文类>>  {
+    - cs : CashSuper
+    + CashContextFactory(String type)
+    + getResult(double money) : double
+}
+
+CashContextFactory o--> CashSuper
+
+
+enum CashEnum {
+CASH_NORMAL
+CASH_RETURN
+CASH_REBATE
+}
+
+@enduml

@@ -1,0 +1,49 @@
+@startuml
+class Person {
+    - name : String
+    +  Person()
+    + Person(String name)
+    + show() : void
+}
+
+class Finery {
+    - component : Person
+    + Decorate(Person component) : void
+    + show() : void
+}
+
+class BigTrouser {
+    + show() : void
+}
+
+class LingDai {
+    + show() : void
+}
+
+
+class PiXie {
+    + show() : void
+}
+
+class PoQiuXie {
+    + show() : void
+}
+
+
+class TShirts {
+    + show() : void
+}
+
+class XiFu {
+    + show() : void
+}
+
+Finery ..> Person  : 依赖
+Finery <|-- BigTrouser  : 继承
+Finery <|-- LingDai  : 继承
+Finery <|-- PiXie  : 继承
+Finery <|-- PoQiuXie  : 继承
+Finery <|-- TShirts  : 继承
+Finery <|-- XiFu  : 继承
+
+@enduml

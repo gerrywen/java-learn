@@ -15,6 +15,16 @@ import java.util.Properties;
 public class PropertyUtil {
     private static Properties props;
 
+    private static String resourcePath = "";
+
+    public static PropertyUtil createResourcePath() {
+        return PropertyUtil.createResourcePath("jdbc.properties");
+    }
+
+    public static PropertyUtil createResourcePath(String resourcePath) {
+        PropertyUtil.resourcePath = resourcePath;
+        return new PropertyUtil();
+    }
 
     synchronized static private void loadProps() {
         System.out.println("开始加载properties文件内容.......");
@@ -23,10 +33,10 @@ public class PropertyUtil {
         InputStream in = null;
         try {
             // 第一种，通过类加载器进行获取properties文件流
-            in = PropertyUtil.class.getClassLoader().getResourceAsStream("jdbc.properties");
+            in = PropertyUtil.class.getClassLoader().getResourceAsStream(resourcePath);
 
             // 第二种，通过类进行获取properties文件流
-//            in = PropertyUtil.class.getResourceAsStream("jdbc.properties");
+//            in = PropertyUtil.class.getResourceAsStream(resourcePath);
 
             props.load(in);
         } catch (FileNotFoundException e) {

@@ -10,7 +10,7 @@ package ch15;
 public class Test {
 
     public static void main(String[] args) {
-        String driver = PropertyUtil.getProperty("jdbc.driver");
+        String driver = PropertyUtil.createResourcePath().getProperty("jdbc.driver");
         System.out.println(driver);
     }
 }

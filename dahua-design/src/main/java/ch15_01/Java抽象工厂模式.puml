@@ -1,0 +1,90 @@
+@startuml
+
+interface IFruit {
+    + get() : void
+}
+
+interface IFruitFactory {
+    + getApple() : IFruit
+    + getBanana() : IFruit
+}
+
+IFruitFactory ..> IFruit  : 依赖
+
+abstract class Apple {
+    + abstract get() : void
+}
+
+abstract class Banana {
+    + abstract get() : void
+}
+
+IFruit <|.. Apple : 实现
+IFruit <|.. Banana : 实现
+
+class InnerApple {
+    + get() : void
+}
+class InnerBanana {
+    + get() : void
+}
+
+class InnerFruitFactory {
+    + getApple() : IFruit
+    + getBanana() : IFruit
+}
+
+Apple <|-- InnerApple : 继承
+Banana <|-- InnerBanana : 继承
+IFruitFactory <|.. InnerFruitFactory : 实现
+
+InnerFruitFactory ..> IFruit  : 依赖
+InnerFruitFactory ..> InnerApple  : 依赖
+InnerFruitFactory ..> InnerBanana  : 依赖
+
+
+
+class NorthApple {
+    + get() : void
+}
+class NorthBanana {
+    + get() : void
+}
+
+class NorthFruitFactory {
+    + getApple() : IFruit
+    + getBanana() : IFruit
+}
+
+Apple <|-- NorthApple : 继承
+Banana <|-- NorthBanana : 继承
+IFruitFactory <|.. NorthFruitFactory : 实现
+
+NorthFruitFactory ..> IFruit  : 依赖
+NorthFruitFactory ..> NorthApple  : 依赖
+NorthFruitFactory ..> NorthBanana  : 依赖
+
+
+class SouthApple {
+    + get() : void
+}
+class SouthBanana {
+    + get() : void
+}
+
+class SouthFruitFactory {
+    + getApple() : IFruit
+    + getBanana() : IFruit
+}
+
+Apple <|-- SouthApple : 继承
+Banana <|-- SouthBanana : 继承
+IFruitFactory <|.. SouthFruitFactory : 实现
+
+SouthFruitFactory ..> IFruit  : 依赖
+SouthFruitFactory ..> SouthApple  : 依赖
+SouthFruitFactory ..> SouthBanana  : 依赖
+
+
+
+@enduml

@@ -15,8 +15,8 @@ interface IDepartment<<操作数据库Department表的接口>>{
    + getDepartmentById(int departmentId): Department
 }
 
-IFactory ..> IUser : : 依赖
-IFactory ..> IDepartment : : 依赖
+IFactory ..> IUser : 依赖
+IFactory ..> IDepartment : 依赖
 
 
 
@@ -51,21 +51,21 @@ class OracleDepartment {
 }
 
 
-IFactory <|-- MysqlFactory
-IFactory <|-- OracleFactory
+IFactory <|.. MysqlFactory : 实现
+IFactory <|.. OracleFactory : 实现
 
-IUser <|-- MysqlUser
-IUser <|-- OracleUser
+IUser <|.. MysqlUser : 实现
+IUser <|.. OracleUser : 实现
 
-IDepartment <|-- MysqlDepartment
-IDepartment <|-- OracleDepartment
-
-
-MysqlFactory ..> IUser : : 依赖
-MysqlFactory ..> IDepartment : : 依赖
+IDepartment <|.. MysqlDepartment : 实现
+IDepartment <|.. OracleDepartment : 实现
 
 
-OracleFactory ..> IUser : : 依赖
-OracleFactory ..> IDepartment : : 依赖
+MysqlFactory ..> IUser : 依赖
+MysqlFactory ..> IDepartment : 依赖
+
+
+OracleFactory ..> IUser : 依赖
+OracleFactory ..> IDepartment : 依赖
 
 @enduml

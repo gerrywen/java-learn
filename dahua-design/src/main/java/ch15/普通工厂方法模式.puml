@@ -1,0 +1,71 @@
+@startuml
+
+interface IFactory<<数据库工厂类>> {
+    + createUser() : IUser
+    + createDepartment() : IDepartment
+}
+
+interface IUser<<操作数据库User表的接口>>{
+   + insert(User user) : void
+   + getUserById(int userId): User
+}
+
+interface IDepartment<<操作数据库Department表的接口>>{
+   + insert(Department department) : void
+   + getDepartmentById(int departmentId): Department
+}
+
+IFactory ..> IUser : : 依赖
+IFactory ..> IDepartment : : 依赖
+
+
+
+class MysqlFactory{
+    + createUser() : IUser
+    + createDepartment() : IDepartment
+}
+
+class OracleFactory {
+    + createUser() : IUser
+    + createDepartment() : IDepartment
+}
+
+class MysqlUser {
+    + insert(User user) : void
+    + getUserById(int userId) : User
+}
+
+class OracleUser {
+    + insert(User user) : void
+    + getUserById(int userId) : User
+}
+
+class MysqlDepartment {
+    + insert(Department department) : void
+    + getDepartmentById(int departmentId) : Department
+}
+
+class OracleDepartment {
+    + insert(Department department) : void
+    + getDepartmentById(int departmentId) : Department
+}
+
+
+IFactory <|-- MysqlFactory
+IFactory <|-- OracleFactory
+
+IUser <|-- MysqlUser
+IUser <|-- OracleUser
+
+IDepartment <|-- MysqlDepartment
+IDepartment <|-- OracleDepartment
+
+
+MysqlFactory ..> IUser : : 依赖
+MysqlFactory ..> IDepartment : : 依赖
+
+
+OracleFactory ..> IUser : : 依赖
+OracleFactory ..> IDepartment : : 依赖
+
+@enduml

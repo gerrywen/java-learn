@@ -38,7 +38,7 @@ class XiFu {
     + show() : void
 }
 
-Finery ..> Person  : 依赖
+Person <|-- Finery   : 继承
 Finery <|-- BigTrouser  : 继承
 Finery <|-- LingDai  : 继承
 Finery <|-- PiXie  : 继承

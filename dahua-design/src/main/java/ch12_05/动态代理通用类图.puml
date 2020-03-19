@@ -1,0 +1,40 @@
+@startuml
+
+interface InvocationHandler<<interface>> {
+    + Object invoke(Object proxy, Method method, Object[] args)
+}
+
+class MyInvocationHandler {
+}
+
+interface IAdvice<<interface>> {
+    + void exec()
+}
+
+class BeforeAdvice {
+}
+
+interface Subject<<interface>> {
+    + void exec()
+}
+
+class RealSubject {
+}
+
+class Client {
+}
+
+class DynamicProxy {
+}
+
+InvocationHandler <|.. MyInvocationHandler : 实现
+IAdvice <|.. BeforeAdvice : 实现
+Subject <|.. RealSubject : 实现
+DynamicProxy <-- Client
+Subject <-- Client
+DynamicProxy ..> InvocationHandler
+DynamicProxy ..> IAdvice
+note left of IAdvice : 通知
+note left of BeforeAdvice : 前置通知
+
+@enduml

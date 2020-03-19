@@ -1,0 +1,31 @@
+@startuml
+
+interface IGamePlayer<<interface>> {
+    + void login(String user,String password)
+    + void killBoss()
+    + void upgrade()
+}
+
+class GamePlayer {
+    + GamePlayer(String _name)
+}
+
+interface InvocationHandler<<interface>> {
+    + Object invoke(Object proxy, Method method, Object[] args)
+}
+
+class GamePlayIH {
+    + GamePlayIH(Object _obj)
+    + Object invoke(Object proxy, Method method, Object[] args)
+}
+
+class Client {
+}
+
+IGamePlayer <|.. GamePlayer : 实现
+InvocationHandler <|.. GamePlayIH : 实现
+
+Client --> GamePlayer
+Client --> GamePlayIH
+
+@enduml

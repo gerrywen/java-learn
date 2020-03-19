@@ -1,0 +1,29 @@
+@startuml
+
+interface IGamePlayer<<interface>> {
+    + void login(String user,String password)
+    + void killBoss()
+    + void upgrade()
+}
+interface IProxy<<interface>> {
+    + void count()
+}
+
+class GamePlayer {
+    + GamePlayer(String _name)
+}
+
+class GamePlayerProxy {
+    + GamePlayerProxy(IGamePlayer _gamePlayer)
+}
+
+class Client {
+}
+
+IGamePlayer <|.. GamePlayer : 实现
+IGamePlayer <|.. GamePlayerProxy : 实现
+IProxy <|.. GamePlayerProxy : 实现
+
+Client --> GamePlayerProxy
+
+@enduml

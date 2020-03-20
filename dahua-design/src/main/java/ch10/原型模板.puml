@@ -1,0 +1,10 @@
+@startuml
+
+abstract class HummerModel
+class HummerH1Model
+class HummerH2Model
+
+HummerModel <|-- HummerH1Model
+HummerModel <|-- HummerH2Model
+
+@enduml

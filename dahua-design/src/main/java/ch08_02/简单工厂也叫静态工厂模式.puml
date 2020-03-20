@@ -1,0 +1,35 @@
+@startuml
+
+interface Human<<interface>> {
+    + void getColor()
+    + void talk()
+}
+
+class HumanFactory {
+}
+
+class BlackHuman
+
+class WhiteHuman
+
+class YellowHuman
+
+class NvWa
+
+Human <-- NvWa
+HumanFactory <-- NvWa
+
+Human <|.. BlackHuman : 实现
+Human <|.. WhiteHuman : 实现
+Human <|.. YellowHuman : 实现
+
+
+Human <.. HumanFactory : 依赖
+
+
+note left of HumanFactory : 具体的八卦炉
+note bottom of BlackHuman : 黑色人种
+note bottom of WhiteHuman : 白色人种
+note bottom of YellowHuman : 黄色人种
+
+@enduml

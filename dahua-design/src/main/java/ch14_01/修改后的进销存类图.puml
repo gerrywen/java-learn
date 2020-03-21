@@ -1,0 +1,82 @@
+@startuml
+
+abstract class AbstractMediator<<抽象中介者>> {
+    # Purchase purchase
+    # Sale sale
+    # Stock stock
+    + AbstractMediator()
+    + abstract void execute(String str, Object... objects)
+}
+
+class Mediator {
+    + void execute(String str, Object... objects)
+    + void buyComputer(int number)
+    + void sellComputer(int number)
+    + void offSell()
+    + void clearStock()
+}
+
+
+
+abstract class AbstractColleague {
+    # AbstractMediator mediator
+    + AbstractColleague(AbstractMediator _mediator)
+}
+
+
+class Sale {
+    + Sale(AbstractMediator _mediator)
+    + void sellIBMComputer(int number)
+    + int getSaleStatus()
+    + void offSale()
+}
+
+class Stock {
+    + Stock(AbstractMediator _mediator)
+    - static int COMPUTER_NUMBER
+    + void increase(int number)
+    + void decrease(int number)
+    + int getStockNumber()
+    + void clearStock()
+}
+
+class Purchase {
+    + Purchase(AbstractMediator _mediator)
+    + void buyIBMcomputer(int number)
+    + void refuseBuyIBM()
+}
+
+/'布局'/
+/'水平布局'/
+together {
+  class Purchase
+  class Mediator
+  class Sale
+}
+Purchase -[hidden] Mediator
+Mediator -[hidden] Sale
+
+/'垂直布局'/
+together {
+  class AbstractMediator
+  class Mediator
+  class Stock
+  class AbstractColleague
+}
+AbstractMediator -[hidden]-> Mediator
+Mediator -[hidden]-> Stock
+Stock -[hidden]-> AbstractColleague
+
+
+AbstractMediator <|-- Mediator : 继承
+
+Stock --|> AbstractColleague : 继承
+Purchase --|> AbstractColleague : 继承
+Sale --|> AbstractColleague : 继承
+
+Stock -->  Mediator : 依赖
+Purchase -->  Mediator: 依赖
+Sale -->  Mediator: 依赖
+
+
+@enduml

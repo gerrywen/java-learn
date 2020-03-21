@@ -1,0 +1,26 @@
+@startuml
+
+class Sale {
+    + void sellIBMComputer(int number)
+    + int getSaleStatus()
+    + void offSale()
+}
+
+class Stock {
+    - static int COMPUTER_NUMBER
+    + void increase(int number)
+    + void decrease(int number)
+    + int getStockNumber()
+    + void clearStock()
+}
+
+class Purchase {
+    + void buyIBMcomputer(int number)
+    + void refuseBuyIBM()
+}
+
+Sale <--> Stock
+Sale <--> Purchase
+Stock <--> Purchase
+
+@enduml

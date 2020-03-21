@@ -1,0 +1,25 @@
+@startuml
+
+class Director
+
+abstract class CarModel
+abstract class CarBuilder
+
+class BMWModel
+class BenzModel
+
+class BMWBuilder
+class BenzBuilder
+
+CarModel <|-- BMWModel : 继承
+CarModel <|-- BenzModel : 继承
+
+CarBuilder <|-- BMWBuilder : 继承
+CarBuilder <|-- BenzBuilder : 继承
+
+CarBuilder o--> CarModel : 依赖
+
+Director o--> CarBuilder : 依赖
+Director ..> CarModel : 依赖
+
+@enduml

@@ -1,0 +1,15 @@
+@startuml
+
+class Product
+
+abstract class Builder
+
+class ConcreteBuilder
+
+class Director
+
+Builder <|-- ConcreteBuilder : 继承
+ConcreteBuilder ..> Product : 依赖
+
+Director o--> Builder
+@enduml

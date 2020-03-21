@@ -1,0 +1,41 @@
+@startuml
+
+abstract class AbstractLogger {
+    + static int INFO
+    + static int DEBUG
+    + static int ERROR
+    # int level
+    # AbstractLogger nextLogger
+    + AbstractLogger(int _level)
+    + void setNextLogger(AbstractLogger nextLogger)
+    + void logMessage(int level, String message)
+    # abstract void write(String message)
+}
+
+class ConsoleLogger {
+    + ConsoleLogger(int _level)
+    # void write(String message)
+}
+
+class FileLogger {
+    + FileLogger(int _level)
+    # void write(String message)
+}
+
+class ErrorLogger {
+    + ErrorLogger(int _level)
+    # void write(String message)
+}
+
+class Client {
+}
+
+AbstractLogger <|-- ConsoleLogger : 继承
+AbstractLogger <|-- FileLogger : 继承
+AbstractLogger <|-- ErrorLogger : 继承
+
+Client --> AbstractLogger : uses
+
+
+
+@enduml

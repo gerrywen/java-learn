@@ -203,6 +203,9 @@ public final class FileDescriptor {
      * Attach a Closeable to this FD for tracking.
      * parent reference is added to otherParents when
      * needed to make closeAll simpler.
+     *
+     * 在此FD上附加一个可跟踪装置。
+     * 当需要的时候，父类引用被添加到其他父类中，以使closeAll更简单。
      */
     synchronized void attach(Closeable c) {
         if (parent == null) {

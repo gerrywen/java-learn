@@ -1,0 +1,46 @@
+@startuml
+
+interface IUserInfo
+interface IOuterUserBaseInfo
+interface IOuterUserHomeInfo
+interface IOuterUserOfficeInfo
+
+class UserInfo
+class OuterUserBaseInfo
+class OuterUserHomeInfo
+class OuterUserOfficeInfo
+
+class OuterUserInfo
+
+together {
+  interface IOuterUserBaseInfo
+  class OuterUserBaseInfo
+  interface IOuterUserHomeInfo
+  class OuterUserHomeInfo
+  interface IOuterUserOfficeInfo
+  class OuterUserOfficeInfo
+}
+
+/'布局'/
+IOuterUserBaseInfo -[hidden]--> OuterUserBaseInfo
+OuterUserBaseInfo -[hidden]--> IOuterUserHomeInfo
+IOuterUserHomeInfo -[hidden]--> OuterUserHomeInfo
+OuterUserHomeInfo -[hidden]--> IOuterUserOfficeInfo
+IOuterUserOfficeInfo -[hidden]--> OuterUserOfficeInfo
+
+UserInfo -[hidden]> OuterUserInfo
+OuterUserInfo -[hidden]> OuterUserBaseInfo
+
+IUserInfo <|.. UserInfo : 实现
+IOuterUserBaseInfo <|.. OuterUserBaseInfo : 实现
+IOuterUserHomeInfo <|.. OuterUserHomeInfo : 实现
+IOuterUserOfficeInfo <|.. OuterUserOfficeInfo : 实现
+
+
+IUserInfo <|.. OuterUserInfo  : 实现
+
+OuterUserInfo --> OuterUserBaseInfo
+OuterUserInfo --> OuterUserHomeInfo
+OuterUserInfo --> OuterUserOfficeInfo
+
+@enduml

@@ -1,0 +1,32 @@
+@startuml
+
+interface IUserInfo
+interface IOuterUser
+
+class UserInfo
+
+class OuterUser
+
+class OuterUserInfo
+
+together {
+  class UserInfo
+  class OuterUserInfo
+  class OuterUser
+}
+
+/'布局'/
+IUserInfo -[hidden]--> UserInfo
+IOuterUser -[hidden]--> OuterUser
+
+UserInfo -[hidden]> OuterUserInfo
+OuterUserInfo -[hidden]> OuterUser
+
+
+IUserInfo <|.. UserInfo : 实现
+IUserInfo <|.. OuterUserInfo : 实现
+IOuterUser <|.. OuterUser : 实现
+OuterUserInfo --|> OuterUser : 继承
+
+
+@enduml

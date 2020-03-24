@@ -1,0 +1,13 @@
+@startuml
+
+abstract class Corp
+class Leaf
+class Branch
+
+Corp <|-- Leaf : 继承
+Corp <|-- Branch : 继承
+
+Branch o--> Corp : 依赖
+
+
+@enduml

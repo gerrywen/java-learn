@@ -1,0 +1,23 @@
+@startuml
+
+interface IHanFeiZi
+interface Observable
+interface Observer
+
+
+class HanFeiZi
+class LiSi
+class LiuSi
+class WangSi
+
+IHanFeiZi <|.. HanFeiZi : 实现
+Observable <|.. HanFeiZi : 实现
+
+
+Observer <|.. LiSi : 实现
+Observer <|.. LiuSi : 实现
+Observer <|.. WangSi : 实现
+
+Observable o--> Observer
+
+@enduml

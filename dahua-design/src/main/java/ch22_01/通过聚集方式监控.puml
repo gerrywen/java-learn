@@ -1,0 +1,15 @@
+@startuml
+
+
+interface IHanFeiZi
+interface ILiSi
+
+class HanFeiZi
+class LiSi
+
+IHanFeiZi <|-- HanFeiZi : 继承
+ILiSi <|-- LiSi : 继承
+
+HanFeiZi o--> LiSi : 依赖
+
+@enduml

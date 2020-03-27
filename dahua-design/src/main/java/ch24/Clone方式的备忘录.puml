@@ -1,0 +1,23 @@
+@startuml
+
+interface Cloneable<<interface>>
+
+class Originator {
+    + Originator createMemento()
+    + void restoreMemento()
+    + Originator clone()
+}
+
+class Caretaker {
+    - Originator originator
+    + Originator getOriginator()
+    + void setOriginator(Originator originator)
+}
+
+Cloneable <|.. Originator : 实现
+
+Originator <.. Originator
+
+Originator <--o Caretaker
+
+@enduml

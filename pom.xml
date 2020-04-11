@@ -17,6 +17,7 @@
         <module>spring-demo</module>
         <module>javaSE</module>
         <module>dahua-design</module>
+        <module>subject02-redis-demo</module>
     </modules>
 
 

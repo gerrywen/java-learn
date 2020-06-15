@@ -25,7 +25,7 @@ public class ProducerNew {
     public ProducerNew(String topic, String[] args) {
         Properties props = new Properties();
         // Kafka服务端的主机名和端口号
-        props.put("bootstrap.servers", "139.196.49.59:9092");
+        props.put("bootstrap.servers", "192.168.33.100:9092");
         // 等待所有副本节点的应答
         props.put("acks", "all");
         // 一批消息处理大小
@@ -76,7 +76,7 @@ public class ProducerNew {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        ProducerNew producer = new ProducerNew("learn-test", args);
+        ProducerNew producer = new ProducerNew("my-replicated-topic", args);
         producer.producerMsg();
         Thread.sleep(20);
     }

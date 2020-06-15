@@ -39,7 +39,7 @@ public class MySamplePartitioner implements Partitioner {
 //            System.out.println("value is " + value + "\n hashcode is " + value.hashCode());
             res = Math.abs(key.hashCode()) % numPartitions;
         }
-        System.out.println("data partitions is " + res);
+        System.out.println("data partitions is " + res + ",key is " + key.toString());
         return res;
     }
 
